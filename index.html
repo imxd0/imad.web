@@ -12,6 +12,9 @@
 <body>
 
 <header class="header">
+  <button id="langBtn">
+  <i class="fa-solid fa-globe"></i> <span>EN</span>
+</button>
   <h1>Imad Zbib</h1>
   <p>Frontend Developer</p>
 
@@ -59,11 +62,6 @@
   <p>Email: zbibimad271106@gmail.com</p>
   
   <div class="social-icons">
-    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.snapchat.com" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
-    <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-  </div>
 </section>
 
 
@@ -72,4 +70,60 @@
 </footer>
 
 </body>
+<script>
+let currentLang = "en";
+
+const text = {
+  en: {
+    job: "Frontend Developer",
+    aboutTitle: "About Me",
+    aboutText:
+      "I'm a web developer passionate about building beautiful user interfaces using HTML, CSS, and JavaScript.",
+    skills: "Skills",
+    projects: "Projects",
+    contact: "Contact Me :",
+    p1: "Project 1",
+    p2: "Project 2",
+    p3: "Project 3",
+    btn: "EN"
+  },
+  ar: {
+    job: "مطور واجهات",
+    aboutTitle: "نبذة عني",
+    aboutText:
+      "أنا مطور ويب أحب إنشاء واجهات حديثة وجميلة باستخدام HTML و CSS و JavaScript.",
+    skills: "المهارات",
+    projects: "المشاريع",
+    contact: "تواصل معي :",
+    p1: "المشروع 1",
+    p2: "المشروع 2",
+    p3: "المشروع 3",
+    btn: "AR"
+  }
+};
+
+document.getElementById("langBtn").onclick = () => {
+  currentLang = currentLang === "en" ? "ar" : "en";
+  const t = text[currentLang];
+
+  document.querySelector("header p").textContent = t.job;
+  document.querySelector("#about h2").textContent = t.aboutTitle;
+  document.querySelector("#about p").textContent = t.aboutText;
+  document.querySelector("#skills h2").textContent = t.skills;
+  document.querySelector("#projects h2").textContent = t.projects;
+  document.querySelector("#contact h2").textContent = t.contact;
+
+  // Projects
+  document.querySelectorAll(".projects .card")[0].textContent = t.p1;
+  document.querySelectorAll(".projects .card")[1].textContent = t.p2;
+  document.querySelectorAll(".projects .card")[2].textContent = t.p3;
+
+  // direction
+  document.body.style.direction = currentLang === "ar" ? "rtl" : "ltr";
+
+  // Button shows CURRENT language
+  document.querySelector("#langBtn span").textContent = t.btn;
+};
+</script>
+
 </html>

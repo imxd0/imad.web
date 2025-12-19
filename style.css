@@ -201,3 +201,28 @@ skill p {
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
 }
+#langBtn{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background:#0ea5e9;
+  border:none;
+  padding:10px 18px;
+  border-radius:30px;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  transition:0.3s;
+}
+
+#langBtn:hover{
+  transform: scale(1.1);
+  background:#38bdf8;
+}
+
+#langBtn i{
+  font-size:18px;
+}
